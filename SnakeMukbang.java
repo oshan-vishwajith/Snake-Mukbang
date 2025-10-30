@@ -143,5 +143,113 @@ class GamePanel extends JPanel implements ActionListener {
             gameOver(g);
         }
     }
+    public void move() {
+        // move body
+        for (int i = bodyParts; i > 0; i--) {
+            x[i] = x[i - 1];
+            y[i] = y[i - 1];
+        }
+
+        // move head
+        switch (direction) {
+            case 'U':
+                y[0] = y[0] - UNIT_SIZE;
+                break;
+            case 'D':
+                y[0] = y[0] + UNIT_SIZE;
+                break;
+            case 'L':
+                x[0] = x[0] - UNIT_SIZE;
+                break;
+            case 'R':
+                x[0] = x[0] + UNIT_SIZE;
+                break;
+        }
+    }
+
+    public void checkApple() {
+        if (x[0] == appleX && y[0] == appleY) {
+            bodyParts++;
+            applesEaten++;
+            spawnApple();
+        }
+    }
+
+    public void checkCollisions() {
+        // check if head collides with body
+        for (int i = bodyParts; i > 0; i--) {
+            if (x[0] == x[i] && y[0] == y[i]) {
+                running = false;
+            }
+        }
+
+        // check if head hits left border
+        if (x[0] < 0) running = false;
+        // right border
+        if (x[0] >= SCREEN_WIDTH) running = false;
+        // top border
+        if (y[0] < 0) running = false;
+        // bottom border
+        if (y[0] >= SCREEN_HEIGHT) running = false;
+
+        if (!running) {
+            timer.stop();
+        }
+    }
+
+    public void gameOver(Graphics g) {
+        // Score display
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Ink Free", Font.BOLD, 30));
+        FontMetrics metrics1 = getFontMetrics(g.getFont());
+        String scoreText = "Score: " + applesEaten;
+        g.drawString(scoreText, (SCREEN_WIDTH - metrics1.stringWidth(scoreText)) / 2, SCREEN_HEIGHT / 2 - 40);
+
+        // Game Over text
+        g.setColor(Color.RED);
+        g.setFont(new Font("Ink Free", Font.BOLD, 60));
+        FontMetrics metrics2 = getFontMetrics(g.getFont());
+        String overText = "Game Over";
+        g.drawString(overText, (SCREEN_WIDTH - metrics2.stringWidth(overText)) / 2, SCREEN_HEIGHT / 2);
+
+        // Restart hint
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Ink Free", Font.PLAIN, 24));
+        FontMetrics metrics3 = getFontMetrics(g.getFont());
+        String restartText = "Press SPACE to restart";
+        g.drawString(restartText, (SCREEN_WIDTH - metrics3.stringWidth(restartText)) / 2, SCREEN_HEIGHT / 2 + 40);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (running) {
+            move();
+            checkApple();
+            checkCollisions();
+        }
+        repaint();
+    }
+
+    public class MyKeyAdapter extends KeyAdapter {
+        @Override
+        public void keyPressed(KeyEvent e) {
+            int key = e.getKeyCode();
+
+            // arrow keys and WASD (no reverse allowed)
+            if ((key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) && direction != 'R') {
+                direction = 'L';
+            } else if ((key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) && direction != 'L') {
+                direction = 'R';
+            } else if ((key == KeyEvent.VK_UP || key == KeyEvent.VK_W) && direction != 'D') {
+                direction = 'U';
+            } else if ((key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) && direction != 'U') {
+                direction = 'D';
+            } else if (key == KeyEvent.VK_SPACE && !running) {
+                // restart
+                startGame();
+            }
+        }
+    }
+}
 
 
