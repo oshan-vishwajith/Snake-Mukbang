@@ -1,11 +1,3 @@
-// Commented SnakeMukbang.java
-// Will add clear explanations above important sections.
-
-/* SnakeMukbang.java
- * Simple Java Swing Snake game with a "mukbang" twist.
- * Works with JDK 8+.
- */
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -128,10 +120,17 @@ class GamePanel extends JPanel implements ActionListener {
                 }
             }
 
-            // Show score
+            // ✅ Enhanced Score Text (Shadow + Bold)
+            g.setFont(new Font("Ink Free", Font.BOLD, 28));
+
+            // shadow
+            g.setColor(Color.BLACK);
+            g.drawString("Score: " + applesEaten, 352, 42);
+
+            // main text
             g.setColor(Color.WHITE);
-            g.setFont(new Font("Ink Free", Font.BOLD, 20));
-            g.drawString("Score: " + applesEaten, 350, 20);
+            g.drawString("Score: " + applesEaten, 350, 40);
+
         } else {
             gameOver(g);
         }
