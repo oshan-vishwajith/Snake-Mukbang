@@ -86,6 +86,17 @@ class TestSnakeGame(unittest.TestCase):
         self.assertGreaterEqual(y, 0)
         self.assertLess(y, snake_game.SCREEN_HEIGHT)
 
+    def test_food_not_on_snake(self):
+        """Test that food doesn't spawn on snake's body"""
+        snake = snake_game.Snake()
+        snake.positions = [(100, 100), (100, 120), (100, 140)]
+        
+        food = snake_game.Food()
+        food.randomize_position(snake.positions)
+        
+        # Food should not be on any of the snake's body positions
+        self.assertNotIn(food.position, snake.positions)
+
     def test_constants(self):
         """Test that game constants are defined"""
         self.assertEqual(snake_game.SCREEN_WIDTH, 800)

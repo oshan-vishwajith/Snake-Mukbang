@@ -71,9 +71,6 @@ def verify_game():
     # Test 7: Collision detection
     print("\n7. Testing self-collision detection...")
     snake.length = 5
-    snake.positions = [(400, 300), (380, 300), (360, 300), (340, 300), (320, 300)]
-    snake.direction = snake_game.LEFT
-    # Create a situation where snake would collide with itself
     snake.positions = [(400, 300), (400, 320), (400, 340), (400, 360), (400, 380)]
     snake.direction = snake_game.DOWN
     for _ in range(5):
