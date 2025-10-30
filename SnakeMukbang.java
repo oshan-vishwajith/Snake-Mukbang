@@ -2,13 +2,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Random;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SnakeMukbang {
 
     // Entry point: runs the Swing UI on the Event Dispatch Thread
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            JFrame frame = new JFrame("Snake Mukbang 🍜🐍");
+            JFrame frame = new JFrame("Snake Mukbang");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setResizable(false);
 
@@ -28,7 +31,9 @@ class GamePanel extends JPanel implements ActionListener {
     static final int SCREEN_HEIGHT = 600;
     static final int UNIT_SIZE = 20; // grid size
     static final int GAME_UNITS = (SCREEN_WIDTH * SCREEN_HEIGHT) / (UNIT_SIZE * UNIT_SIZE);
-    static final int DELAY = 90; // game speed
+    static final int DELAY_EASY = 120;
+    static final int DELAY_MEDIUM = 90;
+    static final int DELAY_HARD = 60;
 
     final int x[] = new int[GAME_UNITS]; // snake body X coords
     final int y[] = new int[GAME_UNITS]; // snake body Y coords
@@ -36,10 +41,27 @@ class GamePanel extends JPanel implements ActionListener {
     int applesEaten = 0;
     int appleX;
     int appleY;
+    
+    // Special food feature
+    int specialFoodX = -1;
+    int specialFoodY = -1;
+    int specialFoodTimer = 0;
+    boolean specialFoodActive = false;
+    
+    // Difficulty and game state
+    int difficulty = DELAY_MEDIUM; // default medium
+    String difficultyName = "Medium";
+    int highScore = 0;
+    boolean paused = false;
+    boolean showGrid = true;
+    
     char direction = 'R'; // starting direction
     boolean running = false;
     Timer timer;
     Random random;
+    
+    // High score file
+    static final String HIGH_SCORE_FILE = "highscore.dat";
 
     GamePanel() {
         random = new Random();
@@ -47,7 +69,8 @@ class GamePanel extends JPanel implements ActionListener {
         setBackground(Color.BLACK);
         setFocusable(true);
         addKeyListener(new MyKeyAdapter()); // listen to keyboard
-        startGame();
+        loadHighScore();
+        showDifficultyMenu();
     }
 
     // Starts or restarts the game
@@ -55,6 +78,9 @@ class GamePanel extends JPanel implements ActionListener {
         bodyParts = 6;
         applesEaten = 0;
         direction = 'R';
+        paused = false;
+        specialFoodActive = false;
+        specialFoodTimer = 0;
 
         // Place snake in the center
         int startX = SCREEN_WIDTH / 2;
@@ -68,8 +94,74 @@ class GamePanel extends JPanel implements ActionListener {
         running = true;
 
         // Timer triggers actionPerformed repeatedly
-        timer = new Timer(DELAY, this);
+        if (timer != null) {
+            timer.stop();
+        }
+        timer = new Timer(difficulty, this);
         timer.start();
+    }
+    
+    // Show difficulty selection menu
+    public void showDifficultyMenu() {
+        String[] options = {"Easy", "Medium", "Hard"};
+        int choice = JOptionPane.showOptionDialog(
+            this,
+            "Select Difficulty Level:",
+            "Snake Mukbang - Difficulty",
+            JOptionPane.DEFAULT_OPTION,
+            JOptionPane.QUESTION_MESSAGE,
+            null,
+            options,
+            options[1]
+        );
+        
+        switch (choice) {
+            case 0:
+                difficulty = DELAY_EASY;
+                difficultyName = "Easy";
+                break;
+            case 1:
+                difficulty = DELAY_MEDIUM;
+                difficultyName = "Medium";
+                break;
+            case 2:
+                difficulty = DELAY_HARD;
+                difficultyName = "Hard";
+                break;
+            default:
+                difficulty = DELAY_MEDIUM;
+                difficultyName = "Medium";
+        }
+        
+        startGame();
+    }
+    
+    // Load high score from file
+    public void loadHighScore() {
+        try {
+            File file = new File(HIGH_SCORE_FILE);
+            if (file.exists()) {
+                BufferedReader reader = new BufferedReader(new FileReader(file));
+                String line = reader.readLine();
+                if (line != null) {
+                    highScore = Integer.parseInt(line);
+                }
+                reader.close();
+            }
+        } catch (Exception e) {
+            highScore = 0;
+        }
+    }
+    
+    // Save high score to file
+    public void saveHighScore() {
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(HIGH_SCORE_FILE));
+            writer.write(String.valueOf(highScore));
+            writer.close();
+        } catch (Exception e) {
+            // Ignore save errors
+        }
     }
 
     // Random apple position (on grid)
@@ -85,6 +177,24 @@ class GamePanel extends JPanel implements ActionListener {
             }
         }
     }
+    
+    // Spawn special bonus food (appears every 5 apples)
+    public void spawnSpecialFood() {
+        specialFoodX = random.nextInt(SCREEN_WIDTH / UNIT_SIZE) * UNIT_SIZE;
+        specialFoodY = random.nextInt(SCREEN_HEIGHT / UNIT_SIZE) * UNIT_SIZE;
+        
+        // avoid spawning on snake body or regular apple
+        for (int i = 0; i < bodyParts; i++) {
+            if ((x[i] == specialFoodX && y[i] == specialFoodY) ||
+                (specialFoodX == appleX && specialFoodY == appleY)) {
+                spawnSpecialFood();
+                return;
+            }
+        }
+        
+        specialFoodActive = true;
+        specialFoodTimer = 100; // Disappears after 100 game ticks
+    }
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -95,9 +205,37 @@ class GamePanel extends JPanel implements ActionListener {
     // Draws everything on screen
     public void draw(Graphics g) {
         if (running) {
+            // Draw grid (optional)
+            if (showGrid) {
+                g.setColor(new Color(30, 30, 30));
+                for (int i = 0; i < SCREEN_HEIGHT / UNIT_SIZE; i++) {
+                    g.drawLine(0, i * UNIT_SIZE, SCREEN_WIDTH, i * UNIT_SIZE);
+                }
+                for (int i = 0; i < SCREEN_WIDTH / UNIT_SIZE; i++) {
+                    g.drawLine(i * UNIT_SIZE, 0, i * UNIT_SIZE, SCREEN_HEIGHT);
+                }
+            }
+            
             // draw apple
             g.setColor(new Color(255, 99, 71));
             g.fillOval(appleX, appleY, UNIT_SIZE, UNIT_SIZE);
+            g.setColor(new Color(255, 160, 122));
+            g.fillOval(appleX + UNIT_SIZE/4, appleY + UNIT_SIZE/6, UNIT_SIZE/3, UNIT_SIZE/3);
+            
+            // draw special food if active
+            if (specialFoodActive) {
+                g.setColor(new Color(255, 215, 0)); // Gold color
+                g.fillOval(specialFoodX, specialFoodY, UNIT_SIZE, UNIT_SIZE);
+                g.setColor(new Color(255, 255, 0));
+                g.fillOval(specialFoodX + UNIT_SIZE/4, specialFoodY + UNIT_SIZE/4, UNIT_SIZE/2, UNIT_SIZE/2);
+                
+                // Draw star effect
+                g.setColor(Color.YELLOW);
+                int cx = specialFoodX + UNIT_SIZE/2;
+                int cy = specialFoodY + UNIT_SIZE/2;
+                g.drawLine(cx - 3, cy - 3, cx + 3, cy + 3);
+                g.drawLine(cx - 3, cy + 3, cx + 3, cy - 3);
+            }
             g.setColor(new Color(255, 160, 122));
             g.fillOval(appleX + UNIT_SIZE/4, appleY + UNIT_SIZE/6, UNIT_SIZE/3, UNIT_SIZE/3);
 
@@ -130,6 +268,24 @@ class GamePanel extends JPanel implements ActionListener {
             // main text
             g.setColor(Color.WHITE);
             g.drawString("Score: " + applesEaten, 350, 40);
+            
+            // Display high score
+            g.setFont(new Font("Ink Free", Font.BOLD, 20));
+            g.setColor(Color.YELLOW);
+            g.drawString("High Score: " + highScore, 10, 30);
+            
+            // Display difficulty
+            g.setColor(Color.CYAN);
+            g.drawString("Difficulty: " + difficultyName, 10, 55);
+            
+            // Pause indicator
+            if (paused) {
+                g.setColor(new Color(255, 255, 255, 200));
+                g.setFont(new Font("Ink Free", Font.BOLD, 60));
+                g.drawString("PAUSED", 280, 300);
+                g.setFont(new Font("Ink Free", Font.PLAIN, 24));
+                g.drawString("Press P to Resume", 280, 340);
+            }
 
         } else {
             gameOver(g);
@@ -157,6 +313,19 @@ class GamePanel extends JPanel implements ActionListener {
             bodyParts++;
             applesEaten++;
             spawnApple();
+            
+            // Spawn special food every 5 apples
+            if (applesEaten % 5 == 0 && !specialFoodActive) {
+                spawnSpecialFood();
+            }
+        }
+        
+        // Check if snake eats special food
+        if (specialFoodActive && x[0] == specialFoodX && y[0] == specialFoodY) {
+            bodyParts += 2; // Give 2 extra segments
+            applesEaten += 3; // Bonus points
+            specialFoodActive = false;
+            specialFoodTimer = 0;
         }
     }
 
@@ -171,9 +340,19 @@ class GamePanel extends JPanel implements ActionListener {
 
     // Game over screen
     public void gameOver(Graphics g) {
+        // Update high score if needed
+        if (applesEaten > highScore) {
+            highScore = applesEaten;
+            saveHighScore();
+        }
+        
         g.setColor(Color.WHITE);
         g.setFont(new Font("Ink Free", Font.BOLD, 30));
         g.drawString("Score: " + applesEaten, 340, 250);
+        
+        g.setColor(Color.YELLOW);
+        g.setFont(new Font("Ink Free", Font.BOLD, 24));
+        g.drawString("High Score: " + highScore, 320, 280);
 
         g.setColor(Color.RED);
         g.setFont(new Font("Ink Free", Font.BOLD, 60));
@@ -182,19 +361,28 @@ class GamePanel extends JPanel implements ActionListener {
         g.setColor(Color.WHITE);
         g.setFont(new Font("Ink Free", Font.PLAIN, 24));
         g.drawString("Press SPACE to restart", 265, 360);
+        g.drawString("Press ESC for difficulty menu", 235, 390);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (running) {
+        if (running && !paused) {
             move();
             checkApple();
             checkCollisions();
+            
+            // Update special food timer
+            if (specialFoodActive) {
+                specialFoodTimer--;
+                if (specialFoodTimer <= 0) {
+                    specialFoodActive = false;
+                }
+            }
         }
         repaint();
     }
 
-    // Controls (WASD + arrows + space restart)
+    // Controls (WASD + arrows + space restart + pause + grid toggle)
     public class MyKeyAdapter extends KeyAdapter {
         @Override
         public void keyPressed(KeyEvent e) {
@@ -205,6 +393,9 @@ class GamePanel extends JPanel implements ActionListener {
             else if ((key == KeyEvent.VK_UP || key == KeyEvent.VK_W) && direction != 'D') direction = 'U';
             else if ((key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) && direction != 'U') direction = 'D';
             else if (key == KeyEvent.VK_SPACE && !running) startGame();
+            else if (key == KeyEvent.VK_P && running) paused = !paused; // Toggle pause
+            else if (key == KeyEvent.VK_G) showGrid = !showGrid; // Toggle grid
+            else if (key == KeyEvent.VK_ESCAPE && !running) showDifficultyMenu(); // Change difficulty
         }
     }
 }
