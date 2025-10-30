@@ -1,51 +1,90 @@
-🐍 Snake Game in Python
+🐍🍜 Snake Mukbang
 
-A classic **Snake Game** built using **Python** and the **Turtle** or **Pygame** library (depending on your version).
-Control the snake, eat the food, and try to get the highest score without hitting the wall or yourself!
-
----
-
-🎮 Features
-
-* Classic Snake movement
-* Score tracking system
-* Game over detection
-* Easy keyboard controls
-* Simple and fun gameplay
+**Snake Mukbang** is a fun and addictive **Java-based Snake Game** built using **Java Swing**.
+Control your hungry snake, eat as much food as you can, and grow longer — but don’t crash into yourself or the walls!
+How long can you survive the ultimate mukbang challenge?
 
 ---
 
-🧩 Requirements
+## 🎮 Features
 
-* **Python 3.x**
-* If using `pygame`, install it by running:
-
-  ```bash
-  pip install pygame
-  ```
+* Classic Snake gameplay with a “mukbang” twist
+* Real-time keyboard controls
+* Dynamic score tracking
+* Smooth movement and simple interface
+* Game Over screen with restart option (if added)
 
 ---
 
-🚀 How to Run
+## 🧩 Requirements
 
-1. Clone this repository:
+* **Java Development Kit (JDK) 8 or higher**
+* A Java IDE such as **Eclipse**, **IntelliJ IDEA**, or **NetBeans**
 
-   ```bash[
-   git clone https://github.com/yourusername/snake-game.git
-   ```
-2. Go to the project directory:
+---
+
+## 🚀 How to Run
+
+### ▶️ Using Command Line
+
+1. Open your terminal in the project folder.
+2. Compile the main file:
 
    ```bash
-   cd snake-game
+   javac SnakeMukbang.java
    ```
 3. Run the game:
 
    ```bash
-   python snake_game.py
+   java SnakeMukbang
    ```
+
+4. Clone this repository:
+
+```bash[
+git clone https://github.com/yourusername/snake-game.git
+```
+
+### 💡 Using an IDE
+
+1. Open the project in your preferred IDE.
+2. Locate and open `SnakeMukbang.java`.
+3. Click **Run ▶️** to start playing.
 
 ---
 
+## 🕹️ Controls
+
+| Key            | Action     |
+| -------------- | ---------- |
+| ⬆️ Arrow Up    | Move Up    |
+| ⬇️ Arrow Down  | Move Down  |
+| ⬅️ Arrow Left  | Move Left  |
+| ➡️ Arrow Right | Move Right |
+
+---
+
+## 🍽️ Game Rules
+
+* Eat food to grow longer.
+* Avoid crashing into walls or your own tail.
+* The game ends when you collide.
+* Score increases with every bite — see how far you can go!
+
+---
+
+## 🏆 Future Enhancements
+
+* Add background music and sound effects 🎵
+* Introduce different food types or special items 🍎🍕
+* Add speed levels or difficulty modes
+* Implement high score saving
+
+---
+
+## 📜 License
+
+This project is open source and available under the [MIT License](LICENSE).
 🕹️ Controls
 
 | Key            | Action     |
@@ -66,7 +105,7 @@ Control the snake, eat the food, and try to get the highest score without hittin
 
 ---
 
-🏆 Future Improvements
+## 🏆 Future Improvements
 
 * Add levels or speed increase over time
 * Add background music or sound effects
@@ -74,6 +113,6 @@ Control the snake, eat the food, and try to get the highest score without hittin
 
 ---
 
-📜 License
+## 📜 License
 
 This project is open source and available under the [MIT License](LICENSE).
