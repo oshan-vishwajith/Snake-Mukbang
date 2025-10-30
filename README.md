@@ -1,25 +1,44 @@
-🐍🍜 Snake Mukbang
+# 🐍🍜 Snake Mukbang
 
 **Snake Mukbang** is a fun and addictive **Java-based Snake Game** built using **Java Swing**.
-Control your hungry snake, eat as much food as you can, and grow longer — but don’t crash into yourself or the walls!
+Control your hungry snake, eat as much food as you can, and grow longer — but don't crash into yourself or the walls!
 How long can you survive the ultimate mukbang challenge?
 
 ---
 
 ## 🎮 Features
 
-* Classic Snake gameplay with a “mukbang” twist
-* Real-time keyboard controls
-* Dynamic score tracking
-* Smooth movement and simple interface
-* Game Over screen with restart option (if added)
+### Core Gameplay
+
+- Classic Snake gameplay with a "mukbang" twist
+- Real-time keyboard controls (WASD + Arrow keys)
+- Dynamic score tracking with persistent high scores
+- Smooth movement and responsive interface
+- Game Over screen with restart option
+
+### 🆕 Advanced Features
+
+- **Multiple Difficulty Levels**: Choose between Easy, Medium, and Hard modes with different speeds
+- **High Score System**: Your best score is automatically saved and tracked across sessions
+- **Special Bonus Food**: Golden food appears every 5 regular apples for bonus points
+  - Awards +3 points
+  - Adds +2 body segments
+  - Disappears after a time limit if not collected
+- **Pause Functionality**: Press 'P' to pause/resume the game anytime
+- **Grid Toggle**: Press 'G' to show/hide the grid overlay for better navigation
+- **Visual Enhancements**:
+  - Animated snake with direction-aware eyes
+  - Colorful food items with special effects
+  - Score display with shadow effects
+  - Difficulty and high score indicators on screen
+- **Timed Challenges**: Special food disappears if not collected quickly
 
 ---
 
 ## 🧩 Requirements
 
-* **Java Development Kit (JDK) 8 or higher**
-* A Java IDE such as **Eclipse**, **IntelliJ IDEA**, or **NetBeans**
+- **Java Development Kit (JDK) 8 or higher**
+- A Java IDE such as **Eclipse**, **IntelliJ IDEA**, or **NetBeans** (optional)
 
 ---
 
@@ -27,92 +46,131 @@ How long can you survive the ultimate mukbang challenge?
 
 ### ▶️ Using Command Line
 
-1. Open your terminal in the project folder.
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/induwara-dissanayake/Snake-Mukbang.git
+   cd Snake-Mukbang
+   ```
+
 2. Compile the main file:
 
    ```bash
    javac SnakeMukbang.java
    ```
+
 3. Run the game:
 
    ```bash
    java SnakeMukbang
    ```
 
-4. Clone this repository:
-
-```bash[
-git clone https://github.com/yourusername/snake-game.git
-```
-
 ### 💡 Using an IDE
 
-1. Open the project in your preferred IDE.
-2. Locate and open `SnakeMukbang.java`.
-3. Click **Run ▶️** to start playing.
+1. Open the project in your preferred IDE
+2. Locate and open `SnakeMukbang.java`
+3. Click **Run ▶️** to start playing
+4. Select your difficulty level from the menu
 
 ---
 
 ## 🕹️ Controls
 
-| Key            | Action     |
-| -------------- | ---------- |
-| ⬆️ Arrow Up    | Move Up    |
-| ⬇️ Arrow Down  | Move Down  |
-| ⬅️ Arrow Left  | Move Left  |
-| ➡️ Arrow Right | Move Right |
+| Key                | Action                                      |
+| ------------------ | ------------------------------------------- |
+| ⬆️ Arrow Up / W    | Move Up                                     |
+| ⬇️ Arrow Down / S  | Move Down                                   |
+| ⬅️ Arrow Left / A  | Move Left                                   |
+| ➡️ Arrow Right / D | Move Right                                  |
+| **P**              | Pause/Resume Game                           |
+| **G**              | Toggle Grid Display                         |
+| **SPACE**          | Restart Game (after Game Over)              |
+| **ESC**            | Return to Difficulty Menu (after Game Over) |
 
 ---
 
 ## 🍽️ Game Rules
 
-* Eat food to grow longer.
-* Avoid crashing into walls or your own tail.
-* The game ends when you collide.
-* Score increases with every bite — see how far you can go!
+- **Regular Food (Red Apple)**: Eat to grow by 1 segment and earn 1 point
+- **Special Food (Golden)**: Appears every 5 apples
+  - Awards 3 points instead of 1
+  - Adds 2 body segments
+  - Limited time to collect before it disappears
+- **Avoid Collisions**: Don't crash into walls or your own tail
+- **Difficulty Modes**:
+  - **Easy**: Slower speed, perfect for beginners
+  - **Medium**: Moderate speed, balanced challenge
+  - **Hard**: Fast speed, for experienced players
+- **High Score**: Your best score is saved automatically and displayed on screen
 
 ---
 
-## 🏆 Future Enhancements
+## 🎯 Gameplay Tips
 
-* Add background music and sound effects 🎵
-* Introduce different food types or special items 🍎🍕
-* Add speed levels or difficulty modes
-* Implement high score saving
+1. Plan your path ahead to avoid trapping yourself
+2. Wait for special food to appear near the edges for safer collection
+3. Use the grid (press G) to help plan movements
+4. Pause (press P) to take a break and plan your strategy
+5. Start with Easy mode to practice, then challenge yourself with Hard mode
+6. Try to beat your high score each game!
+
+---
+
+## 🏆 Implemented Features (Hacktoberfest 2025)
+
+- ✅ Multiple difficulty levels (Easy, Medium, Hard)
+- ✅ Persistent high score tracking with file storage
+- ✅ Special bonus food system with visual effects
+- ✅ Pause/Resume functionality
+- ✅ Grid toggle for enhanced gameplay
+- ✅ Enhanced visual effects and UI improvements
+- ✅ Direction-aware snake head animation
+- ✅ Comprehensive controls and keyboard shortcuts
+
+---
+
+## 🔮 Future Enhancements
+
+- Add background music and sound effects 🎵
+- Introduce power-ups (speed boost, invincibility, etc.)
+- Add obstacles and level designs
+- Implement online leaderboard
+- Add multiplayer mode
+- Theme customization options
+- Achievement system
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! This project participates in **Hacktoberfest 2025**.
+
+To contribute:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ---
 
 ## 📜 License
 
 This project is open source and available under the [MIT License](LICENSE).
-🕹️ Controls
-
-| Key            | Action     |
-| -------------- | ---------- |
-| ⬆️ Arrow Up    | Move Up    |
-| ⬇️ Arrow Down  | Move Down  |
-| ⬅️ Arrow Left  | Move Left  |
-| ➡️ Arrow Right | Move Right |
 
 ---
 
-🧠 Game Rules
+## 👨‍💻 Author
 
-* Eat food to grow your snake and earn points.
-* Don’t run into the walls.
-* Don’t bite your own tail.
-* The game ends when you crash!
+**Induwara Dissanayake**
 
----
-
-## 🏆 Future Improvements
-
-* Add levels or speed increase over time
-* Add background music or sound effects
-* Display high scores
+- GitHub: [@induwara-dissanayake](https://github.com/induwara-dissanayake)
 
 ---
 
-## 📜 License
+## 🌟 Show Your Support
 
-This project is open source and available under the [MIT License](LICENSE).
+If you found this project helpful or fun, please give it a ⭐️!
+
+Happy Gaming! 🎮🐍
