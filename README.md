@@ -1,7 +1,3 @@
-Here’s a clear, beginner-friendly **README.md** for a **Python Snake Game** project 🐍👇
-
----
-
 🐍 Snake Game in Python
 
 A classic **Snake Game** built using **Python** and the **Turtle** or **Pygame** library (depending on your version).
@@ -34,7 +30,7 @@ Control the snake, eat the food, and try to get the highest score without hittin
 
 1. Clone this repository:
 
-   ```bash
+   ```bash[
    git clone https://github.com/yourusername/snake-game.git
    ```
 2. Go to the project directory:
