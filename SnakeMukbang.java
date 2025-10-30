@@ -48,6 +48,14 @@ class GamePanel extends JPanel implements ActionListener {
     int specialFoodTimer = 0;
     boolean specialFoodActive = false;
     
+    // Combo system for score multiplier
+    int comboCount = 0;
+    int movesSinceLastFood = 0;
+    int comboDisplayTimer = 0;
+    String comboMessage = "";
+    static final int COMBO_THRESHOLD_FAST = 15;    // < 15 moves = 2x
+    static final int COMBO_THRESHOLD_NORMAL = 30;  // < 30 moves = normal
+    
     // Difficulty and game state
     int difficulty = DELAY_MEDIUM; // default medium
     String difficultyName = "Medium";
@@ -81,6 +89,9 @@ class GamePanel extends JPanel implements ActionListener {
         paused = false;
         specialFoodActive = false;
         specialFoodTimer = 0;
+        comboCount = 0;
+        movesSinceLastFood = 0;
+        comboDisplayTimer = 0;
 
         // Place snake in the center
         int startX = SCREEN_WIDTH / 2;
@@ -278,6 +289,28 @@ class GamePanel extends JPanel implements ActionListener {
             g.setColor(Color.CYAN);
             g.drawString("Difficulty: " + difficultyName, 10, 55);
             
+            // Display combo message if active
+            if (comboDisplayTimer > 0) {
+                g.setFont(new Font("Ink Free", Font.BOLD, 36));
+                g.setColor(new Color(255, 215, 0)); // Gold
+                int msgX = SCREEN_WIDTH / 2 - 80;
+                int msgY = SCREEN_HEIGHT / 2;
+                // Shadow
+                g.setColor(new Color(0, 0, 0, 150));
+                g.drawString(comboMessage, msgX + 2, msgY + 2);
+                // Main text with fade effect
+                int alpha = Math.min(255, comboDisplayTimer * 8);
+                g.setColor(new Color(255, 215, 0, alpha));
+                g.drawString(comboMessage, msgX, msgY);
+            }
+            
+            // Display combo counter if active
+            if (comboCount > 1) {
+                g.setFont(new Font("Ink Free", Font.BOLD, 22));
+                g.setColor(new Color(255, 140, 0)); // Dark orange
+                g.drawString("Combo x" + comboCount + "!", SCREEN_WIDTH - 150, 30);
+            }
+            
             // Pause indicator
             if (paused) {
                 g.setColor(new Color(255, 255, 255, 200));
@@ -305,13 +338,21 @@ class GamePanel extends JPanel implements ActionListener {
             case 'L': x[0] -= UNIT_SIZE; break;
             case 'R': x[0] += UNIT_SIZE; break;
         }
+        
+        // Track moves for combo system
+        movesSinceLastFood++;
     }
 
     // Check if snake eats apple
     public void checkApple() {
         if (x[0] == appleX && y[0] == appleY) {
             bodyParts++;
-            applesEaten++;
+            
+            // Calculate score with combo multiplier
+            int basePoints = 1;
+            int pointsEarned = calculatePoints(basePoints);
+            applesEaten += pointsEarned;
+            
             spawnApple();
             
             // Spawn special food every 5 apples
@@ -323,10 +364,48 @@ class GamePanel extends JPanel implements ActionListener {
         // Check if snake eats special food
         if (specialFoodActive && x[0] == specialFoodX && y[0] == specialFoodY) {
             bodyParts += 2; // Give 2 extra segments
-            applesEaten += 3; // Bonus points
+            
+            // Special food always gets bonus with combo
+            int basePoints = 3;
+            int pointsEarned = calculatePoints(basePoints);
+            applesEaten += pointsEarned;
+            
             specialFoodActive = false;
             specialFoodTimer = 0;
         }
+    }
+    
+    // Calculate points based on speed (combo system)
+    public int calculatePoints(int basePoints) {
+        int pointsEarned = basePoints;
+        
+        // Check if player was fast enough for combo
+        if (movesSinceLastFood < COMBO_THRESHOLD_FAST) {
+            comboCount++;
+            pointsEarned = basePoints * 2; // Double points!
+            
+            // Show combo message
+            if (comboCount >= 5) {
+                comboMessage = "AMAZING x" + comboCount + "!";
+            } else if (comboCount >= 3) {
+                comboMessage = "GREAT x" + comboCount + "!";
+            } else {
+                comboMessage = "FAST x" + comboCount + "!";
+            }
+            comboDisplayTimer = 30; // Display for 30 frames
+            
+        } else if (movesSinceLastFood < COMBO_THRESHOLD_NORMAL) {
+            comboCount = 1; // Reset combo but still good
+            pointsEarned = basePoints;
+        } else {
+            comboCount = 0; // Too slow, no combo
+            pointsEarned = basePoints;
+        }
+        
+        // Reset move counter
+        movesSinceLastFood = 0;
+        
+        return pointsEarned;
     }
 
     // Check collisions with walls or self
@@ -377,6 +456,11 @@ class GamePanel extends JPanel implements ActionListener {
                 if (specialFoodTimer <= 0) {
                     specialFoodActive = false;
                 }
+            }
+            
+            // Update combo display timer
+            if (comboDisplayTimer > 0) {
+                comboDisplayTimer--;
             }
         }
         repaint();

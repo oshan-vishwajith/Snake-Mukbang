@@ -19,9 +19,13 @@ How long can you survive the ultimate mukbang challenge?
 ### 🆕 Advanced Features
 
 - **Multiple Difficulty Levels**: Choose between Easy, Medium, and Hard modes with different speeds
+- **Combo Scoring System**: Earn 2x points for eating food quickly! Chain combos for higher scores
+  - Fast eating (<15 moves) = 2x score multiplier
+  - Visual combo counter and motivational messages
+  - Strategic gameplay rewards skilled players
 - **High Score System**: Your best score is automatically saved and tracked across sessions
 - **Special Bonus Food**: Golden food appears every 5 regular apples for bonus points
-  - Awards +3 points
+  - Awards +3 points (6 with combo!)
   - Adds +2 body segments
   - Disappears after a time limit if not collected
 - **Pause Functionality**: Press 'P' to pause/resume the game anytime
@@ -30,6 +34,7 @@ How long can you survive the ultimate mukbang challenge?
   - Animated snake with direction-aware eyes
   - Colorful food items with special effects
   - Score display with shadow effects
+  - Combo messages with fade effects
   - Difficulty and high score indicators on screen
 - **Timed Challenges**: Special food disappears if not collected quickly
 
