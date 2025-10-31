@@ -140,13 +140,13 @@ The main goal is to score as high as possible before the game ends.
 
 ## 🔮 FUTURE ENHANCEMENTS
 
-- Add background music and sound effects 🎵
-- Introduce power-ups (speed boost, invincibility, etc.)
-- Add obstacles and level designs
-- Implement online leaderboard
-- Add multiplayer mode
-- Theme customization options
-- Achievement system
+- 🎵 Integrate background music and immersive sound effects
+- ⚡ Introduce exciting power-ups (speed boost, invincibility, etc.)
+- 🏗️ Design dynamic obstacles and multiple levels for added challenge
+- 🏆 Implement an online leaderboard to track top scores
+- 🌐 Add multiplayer mode for competitive gameplay
+- 🎨 Provide theme customization options for a personalized experience
+- 🏅 Introduce an achievement system to reward player milestones
 
 ---
 
