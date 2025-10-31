@@ -112,14 +112,18 @@ The main goal is to score as high as possible before the game ends.
 
 ## 🎯 GAMEPLAY TIPS
 
-1. Plan your path ahead to avoid trapping yourself
-2. Wait for special food to appear near the edges for safer collection
-3. Use the grid (press G) to help plan movements
-4. Pause (press P) to take a break and plan your strategy
-5. Start with Easy mode to practice, then challenge yourself with Hard mode
-6. Try to beat your high score each game!
+1.🧠 Plan Ahead — Always think a few moves ahead to avoid boxing yourself in or colliding with your own tail.
 
----
+2.🍎 Watch for Special Food — Collect bonus food items that appear near the edges for extra points, but stay alert for risky positions.
+
+3.🧩 Use the Grid (Press G) — Activate the grid to visualize your movement path and plan your next turn more strategically.
+
+4.⏸️ Pause & Strategize (Press P) — Take a short break anytime to analyze the board and plan your next move carefully.
+
+5.🐢 Start Easy, Then Level Up — Begin in Easy Mode to master the basics, then test your reflexes in Hard Mode for an intense challenge.
+
+6.🏆 Chase Your High Score — Push your limits every round and try to beat your personal best to become the ultimate snake master!
+
 
 ## 🏆 Implemented Features (Hacktoberfest 2025)
 
