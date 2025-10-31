@@ -24,8 +24,8 @@ public class SnakeMukbang {
         });
     }
 }
-
-// Game panel contains all game logic + drawing
+// GamePanel: Handles all core game logic, updates game state, and renders graphics to the screen.
+// Includes player movement, collision detection, score tracking, and visual updates.
 class GamePanel extends JPanel implements ActionListener {
 
     static final int SCREEN_WIDTH = 800;
