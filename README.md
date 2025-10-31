@@ -1,9 +1,9 @@
 ## 🐍🍜 Snake Mukbang
+“Eat, Grow, and Slither to Glory!”
 
-Snake Mukbang is a classic Snake Game implemented in Java Swing, designed for both entertainment and skill testing.
-Players control a continuously moving snake that grows by consuming food items while avoiding collisions with walls and its own body.
-The objective is to achieve the highest score possible before the game ends.
-
+Snake Mukbang is a fun and interactive Snake Game built using Java Swing, designed for both entertainment and reflex training.
+Players guide a constantly moving snake that grows longer each time it eats food, while avoiding collisions with the walls or its own body.
+The main goal is to score as high as possible before the game ends.
 ---
 
 ## 🎮 FEATURES
@@ -11,10 +11,10 @@ The objective is to achieve the highest score possible before the game ends.
 ### Core Gameplay
 
 - Classic Snake gameplay with a "mukbang" twist
-- Real-time keyboard controls (WASD + Arrow keys)
+- Easy keyboard controls (WASD + Arrow keys)
 - Dynamic score tracking with persistent high scores
 - Smooth movement and responsive interface
-- Game Over screen with restart option
+- Instantly restart after defeat without closing the game — perfect for quick retries and endless fun
 
 ### 🆕 Advanced Features
 
