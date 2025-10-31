@@ -1,10 +1,14 @@
-# 🐍🍜 Snake Mukbang !
+## 🐍🍜 Snake Mukbang
+
+**Snake Mukbang** is a fun and addictive **Java-based Snake Game** built using **Java Swing**.
+Control your hungry snake, eat as much food as you can, and grow longer — but don't crash into yourself or the walls!
+How long can you survive the ultimate mukbang challenge?
 
 Snake Mukbang is a fun and addictive Java Snake Game built with Java Swing.
 Control your snake, eat food to grow longer, and avoid crashing into walls or yourself. Collect special golden apples for bonus points and challenge yourself across different difficulty levels. Simple, addictive, and fun for everyone!
 ---
 
-## 🎮 FEATURES
+## 🎮 Features
 
 ### Core Gameplay
 
@@ -38,14 +42,15 @@ Control your snake, eat food to grow longer, and avoid crashing into walls or yo
 
 ---
 
-## 🧩 REQUIREMENTS
+### 🧩 Requirements
 
-- **Java Development Kit (JDK) 8 or higher**
-- A Java IDE such as **Eclipse**, **IntelliJ IDEA**, or **NetBeans** (optional)
+  - Java Development Kit (JDK) version 8 or above
+
+  - A Java IDE like IntelliJ IDEA, Eclipse, or NetBeans (optional but recommended)
 
 ---
 
-## 🚀 HOW TO RUN
+## 🚀 How to Run
 
 ### ▶️ Using Command Line
 
@@ -77,7 +82,7 @@ Control your snake, eat food to grow longer, and avoid crashing into walls or yo
 
 ---
 
-## 🕹️ CONTROLS
+## 🕹️ Controls
 
 | Key                | Action                                      |
 | ------------------ | ------------------------------------------- |
@@ -92,7 +97,7 @@ Control your snake, eat food to grow longer, and avoid crashing into walls or yo
 
 ---
 
-## 🍽️ GAME RULES
+## 🍽️ Game Rules
 
 - **Regular Food (Red Apple)**: Eat to grow by 1 segment and earn 1 point
 - **Special Food (Golden)**: Appears every 5 apples
@@ -108,7 +113,7 @@ Control your snake, eat food to grow longer, and avoid crashing into walls or yo
 
 ---
 
-## 🎯 GAMEPLAY TIPS
+## 🎯 Gameplay Tips
 
 1. Plan your path ahead to avoid trapping yourself
 2. Wait for special food to appear near the edges for safer collection
