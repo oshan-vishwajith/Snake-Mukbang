@@ -6,6 +6,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+// Main class: entry point for the game
 public class SnakeMukbang {
 
     // Entry point: runs the Swing UI on the Event Dispatch Thread
