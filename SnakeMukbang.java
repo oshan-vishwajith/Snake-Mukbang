@@ -36,8 +36,8 @@ class GamePanel extends JPanel implements ActionListener {
     static final int DELAY_MEDIUM = 90;
     static final int DELAY_HARD = 60;
 
-    final int x[] = new int[GAME_UNITS]; // snake body X coords
-    final int y[] = new int[GAME_UNITS]; // snake body Y coords
+    final int[] x = new int[GAME_UNITS]; // snake body X coords
+    final int[] y = new int[GAME_UNITS]; // snake body Y coords
     int bodyParts = 6; // initial length
     int applesEaten = 0;
     int appleX;
