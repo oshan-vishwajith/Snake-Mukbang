@@ -10,11 +10,11 @@ The objective is to achieve the highest score possible before the game ends.
 
 ### Core Gameplay
 
-- Classic Snake gameplay with a "mukbang" twist
+- Experience the nostalgic Snake gameplay reimagined with a fun “eat-to-grow” mukbang theme
 - Real-time keyboard controls (WASD + Arrow keys)
 - Dynamic score tracking with persistent high scores
 - Smooth movement and responsive interface
-- Game Over screen with restart option
+- Instantly restart after defeat without closing the game — perfect for quick retries and endless fun
 
 ### 🆕 Advanced Features
 
