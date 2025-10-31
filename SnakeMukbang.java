@@ -388,11 +388,11 @@ class GamePanel extends JPanel implements ActionListener {
             
             // Show combo message
             if (comboCount >= 5) {
-                comboMessage = "AMAZING x" + comboCount + "!";
+                comboMessage = "AMAZING🔥 x" + comboCount + "!";
             } else if (comboCount >= 3) {
-                comboMessage = "GREAT x" + comboCount + "!";
+                comboMessage = "GREAT👌 x" + comboCount + "!";
             } else {
-                comboMessage = "FAST x" + comboCount + "!";
+                comboMessage = "FAST⚡ x" + comboCount + "!";
             }
             comboDisplayTimer = 30; // Display for 30 frames
             
