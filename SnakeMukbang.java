@@ -129,19 +129,19 @@ class GamePanel extends JPanel implements ActionListener {
         
         switch (choice) {
             case 0:
-                difficulty = DELAY_EASY;
+                difficulty = DELAY_EASY; // Easy speed, slower snake
                 difficultyName = "Easy";
                 break;
             case 1:
-                difficulty = DELAY_MEDIUM;
+                difficulty = DELAY_MEDIUM; // starting difficulty is Medium by default
                 difficultyName = "Medium";
                 break;
             case 2:
-                difficulty = DELAY_HARD;
+                difficulty = DELAY_HARD;// Hard speed, faster snake
                 difficultyName = "Hard";
                 break;
             default:
-                difficulty = DELAY_MEDIUM;
+                difficulty = DELAY_MEDIUM;// Default to Medium if no valid choice
                 difficultyName = "Medium";
         }
         
@@ -388,11 +388,11 @@ class GamePanel extends JPanel implements ActionListener {
             
             // Show combo message
             if (comboCount >= 5) {
-                comboMessage = "AMAZING x" + comboCount + "!";
+                comboMessage = "AMAZING🔥 x" + comboCount + "!";
             } else if (comboCount >= 3) {
-                comboMessage = "GREAT x" + comboCount + "!";
+                comboMessage = "GREAT👌 x" + comboCount + "!";
             } else {
-                comboMessage = "FAST x" + comboCount + "!";
+                comboMessage = "FAST⚡ x" + comboCount + "!";
             }
             comboDisplayTimer = 30; // Display for 30 frames
             
