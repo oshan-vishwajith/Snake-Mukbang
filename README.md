@@ -1,14 +1,12 @@
 ## 🐍🍜 Snake Mukbang
 
-**Snake Mukbang** is a fun and addictive **Java-based Snake Game** built using **Java Swing**.
-Control your hungry snake, eat as much food as you can, and grow longer — but don't crash into yourself or the walls!
-How long can you survive the ultimate mukbang challenge?
+Snake Mukbang is a classic Snake Game implemented in Java Swing, designed for both entertainment and skill testing.
+Players control a continuously moving snake that grows by consuming food items while avoiding collisions with walls and its own body.
+The objective is to achieve the highest score possible before the game ends.
 
-Snake Mukbang is a fun and addictive Java Snake Game built with Java Swing.
-Control your snake, eat food to grow longer, and avoid crashing into walls or yourself. Collect special golden apples for bonus points and challenge yourself across different difficulty levels. Simple, addictive, and fun for everyone!
 ---
 
-## 🎮 Features
+## 🎮 FEATURES
 
 ### Core Gameplay
 
@@ -42,15 +40,14 @@ Control your snake, eat food to grow longer, and avoid crashing into walls or yo
 
 ---
 
-### 🧩 Requirements
+## 🧩 REQUIREMENTS
 
-  - Java Development Kit (JDK) version 8 or above
-
-  - A Java IDE like IntelliJ IDEA, Eclipse, or NetBeans (optional but recommended)
+- **Java Development Kit (JDK) 8 or higher**
+- A Java IDE such as **Eclipse**, **IntelliJ IDEA**, or **NetBeans** (optional)
 
 ---
 
-## 🚀 How to Run
+## 🚀 HOW TO RUN
 
 ### ▶️ Using Command Line
 
@@ -82,7 +79,7 @@ Control your snake, eat food to grow longer, and avoid crashing into walls or yo
 
 ---
 
-## 🕹️ Controls
+## 🕹️ CONTROLS
 
 | Key                | Action                                      |
 | ------------------ | ------------------------------------------- |
@@ -97,7 +94,7 @@ Control your snake, eat food to grow longer, and avoid crashing into walls or yo
 
 ---
 
-## 🍽️ Game Rules
+## 🍽️ GAME RULES
 
 - **Regular Food (Red Apple)**: Eat to grow by 1 segment and earn 1 point
 - **Special Food (Golden)**: Appears every 5 apples
@@ -113,7 +110,7 @@ Control your snake, eat food to grow longer, and avoid crashing into walls or yo
 
 ---
 
-## 🎯 Gameplay Tips
+## 🎯 GAMEPLAY TIPS
 
 1. Plan your path ahead to avoid trapping yourself
 2. Wait for special food to appear near the edges for safer collection
@@ -121,8 +118,6 @@ Control your snake, eat food to grow longer, and avoid crashing into walls or yo
 4. Pause (press P) to take a break and plan your strategy
 5. Start with Easy mode to practice, then challenge yourself with Hard mode
 6. Try to beat your high score each game!
-
--💡 **Tip:** Try collecting special food near the corners for a safer combo!
 
 ---
 
@@ -139,7 +134,7 @@ Control your snake, eat food to grow longer, and avoid crashing into walls or yo
 
 ---
 
-## 🔮 Future Enhancements
+## 🔮 FUTURE ENHANCEMENTS
 
 - Add background music and sound effects 🎵
 - Introduce power-ups (speed boost, invincibility, etc.)
@@ -151,7 +146,7 @@ Control your snake, eat food to grow longer, and avoid crashing into walls or yo
 
 ---
 
-## 🤝 Contributing
+## 🤝 CONTRIBUTING
 
 Contributions are welcome! This project participates in **Hacktoberfest 2025**.
 
@@ -165,13 +160,13 @@ To contribute:
 
 ---
 
-## 📜 License
+## 📜 LICENCE
 
 This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-## 👨‍💻 Author
+## 👨‍💻 AUTHOR
 
 **Induwara Dissanayake**
 
@@ -179,8 +174,8 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-## 🌟 Show Your Support
+## 🌟 SHOW YOUR SUPPORT
 
-If you found this project helpful or fun, please give it a ⭐️!
+If you found this project helpful or fun, please give it a ⭐️!!
 
-Happy Gaming! 🎮🐍
+Happy Gaming!!! 🎮🐍
