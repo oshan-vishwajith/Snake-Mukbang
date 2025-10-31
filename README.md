@@ -11,7 +11,7 @@ The objective is to achieve the highest score possible before the game ends.
 ### Core Gameplay
 
 - Classic Snake gameplay with a "mukbang" twist
-- Real-time keyboard controls (WASD + Arrow keys)
+- Easy keyboard controls (WASD + Arrow keys)
 - Dynamic score tracking with persistent high scores
 - Smooth movement and responsive interface
 - Game Over screen with restart option
