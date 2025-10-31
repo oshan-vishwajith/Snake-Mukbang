@@ -466,20 +466,35 @@ class GamePanel extends JPanel implements ActionListener {
         repaint();
     }
 
-    // Controls (WASD + arrows + space restart + pause + grid toggle)
-    public class MyKeyAdapter extends KeyAdapter {
-        @Override
-        public void keyPressed(KeyEvent e) {
-            int key = e.getKeyCode();
+    // Controls (WASD + Arrows + Space = Restart + Pause + Grid Toggle)
+public class MyKeyAdapter extends KeyAdapter {
+    @Override
+    public void keyPressed(KeyEvent e) {
+        int key = e.getKeyCode();
 
-            if ((key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) && direction != 'R') direction = 'L';
-            else if ((key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) && direction != 'L') direction = 'R';
-            else if ((key == KeyEvent.VK_UP || key == KeyEvent.VK_W) && direction != 'D') direction = 'U';
-            else if ((key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) && direction != 'U') direction = 'D';
-            else if (key == KeyEvent.VK_SPACE && !running) startGame();
-            else if (key == KeyEvent.VK_P && running) paused = !paused; // Toggle pause
-            else if (key == KeyEvent.VK_G) showGrid = !showGrid; // Toggle grid
-            else if (key == KeyEvent.VK_ESCAPE && !running) showDifficultyMenu(); // Change difficulty
+        if ((key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) && direction != 'R') {
+            direction = 'L';
+        } 
+        else if ((key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) && direction != 'L') {
+            direction = 'R';
+        } 
+        else if ((key == KeyEvent.VK_UP || key == KeyEvent.VK_W) && direction != 'D') {
+            direction = 'U';
+        } 
+        else if ((key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) && direction != 'U') {
+            direction = 'D';
+        } 
+        else if (key == KeyEvent.VK_SPACE && !running) {
+            startGame();
+        } 
+        else if (key == KeyEvent.VK_P && running) {
+            paused = !paused; // Toggle pause
+        } 
+        else if (key == KeyEvent.VK_G) {
+            showGrid = !showGrid; // Toggle grid
+        } 
+        else if (key == KeyEvent.VK_ESCAPE && !running) {
+            showDifficultyMenu(); // Change difficulty
         }
     }
 }
