@@ -1,4 +1,4 @@
-# 🐍🍜 Snake Mukbang !
+## 🐍🍜 Snake Mukbang
 
 Snake Mukbang is a classic Snake Game implemented in Java Swing, designed for both entertainment and skill testing.
 Players control a continuously moving snake that grows by consuming food items while avoiding collisions with walls and its own body.
@@ -119,8 +119,6 @@ The objective is to achieve the highest score possible before the game ends.
 5. Start with Easy mode to practice, then challenge yourself with Hard mode
 6. Try to beat your high score each game!
 
--💡 **Tip:** Try collecting special food near the corners for a safer combo!
-
 ---
 
 ## 🏆 Implemented Features (Hacktoberfest 2025)
@@ -178,6 +176,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 🌟 Show Your Support
 
-If you found this project helpful or fun, please give it a ⭐️!
+If you found this project helpful or fun, please give it a ⭐️!!
 
-Happy Gaming! 🎮🐍
+Happy Gaming!!! 🎮🐍
