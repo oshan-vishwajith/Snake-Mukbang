@@ -6,7 +6,7 @@ How long can you survive the ultimate mukbang challenge?
 
 ---
 
-## 🎮 Features
+## 🎮 FEATURES
 
 ### Core Gameplay
 
@@ -40,14 +40,14 @@ How long can you survive the ultimate mukbang challenge?
 
 ---
 
-## 🧩 Requirements
+## 🧩 REQUIREMENTS
 
 - **Java Development Kit (JDK) 8 or higher**
 - A Java IDE such as **Eclipse**, **IntelliJ IDEA**, or **NetBeans** (optional)
 
 ---
 
-## 🚀 How to Run
+## 🚀 HOW TO RUN
 
 ### ▶️ Using Command Line
 
@@ -79,7 +79,7 @@ How long can you survive the ultimate mukbang challenge?
 
 ---
 
-## 🕹️ Controls
+## 🕹️ CONTROLS
 
 | Key                | Action                                      |
 | ------------------ | ------------------------------------------- |
@@ -94,7 +94,7 @@ How long can you survive the ultimate mukbang challenge?
 
 ---
 
-## 🍽️ Game Rules
+## 🍽️ GAME RULES
 
 - **Regular Food (Red Apple)**: Eat to grow by 1 segment and earn 1 point
 - **Special Food (Golden)**: Appears every 5 apples
@@ -110,7 +110,7 @@ How long can you survive the ultimate mukbang challenge?
 
 ---
 
-## 🎯 Gameplay Tips
+## 🎯 GAMEPLAY TIPS
 
 1. Plan your path ahead to avoid trapping yourself
 2. Wait for special food to appear near the edges for safer collection
