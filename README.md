@@ -1,8 +1,8 @@
 # 🐍🍜 Snake Mukbang !
 
-**Snake Mukbang** is a fun and addictive **Java-based Snake Game** built using **Java Swing**.
-Control your hungry snake, eat as much food as you can, and grow longer — but don't crash into yourself or the walls!
-How long can you survive the ultimate mukbang challenge?
+Snake Mukbang is a classic Snake Game implemented in Java Swing, designed for both entertainment and skill testing.
+Players control a continuously moving snake that grows by consuming food items while avoiding collisions with walls and its own body.
+The objective is to achieve the highest score possible before the game ends.
 
 ---
 
