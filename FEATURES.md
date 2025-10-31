@@ -1,4 +1,4 @@
-# 🌟 Features Showcase - Snake Mukbang
+# 🌟 Features Showcase - Snake Mukbang..
 
 This document provides a detailed overview of all the features in Snake Mukbang, including the new Hacktoberfest 2025 additions!
 
