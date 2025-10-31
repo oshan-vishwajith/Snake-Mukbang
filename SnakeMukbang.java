@@ -188,6 +188,7 @@ class GamePanel extends JPanel implements ActionListener {
             }
         }
     }
+
     
     // Spawn special bonus food (appears every 5 apples)
     public void spawnSpecialFood() {
