@@ -1,12 +1,12 @@
 ## 🐍🍜 Snake Mukbang
 
-Snake Mukbang is a classic Snake Game implemented in Java Swing, designed for both entertainment and skill testing.
-Players control a continuously moving snake that grows by consuming food items while avoiding collisions with walls and its own body.
-The objective is to achieve the highest score possible before the game ends.
+**Snake Mukbang** is a fun and addictive **Java-based Snake Game** built using **Java Swing**.
+Control your hungry snake, eat as much food as you can, and grow longer — but don't crash into yourself or the walls!
+How long can you survive the ultimate mukbang challenge?
 
 ---
 
-## 🎮 FEATURES
+## 🎮 Features
 
 ### Core Gameplay
 
@@ -40,14 +40,15 @@ The objective is to achieve the highest score possible before the game ends.
 
 ---
 
-## 🧩 REQUIREMENTS
+### 🧩 Requirements
 
-- **Java Development Kit (JDK) 8 or higher**
-- A Java IDE such as **Eclipse**, **IntelliJ IDEA**, or **NetBeans** (optional)
+  - Java Development Kit (JDK) version 8 or above
+
+  - A Java IDE like IntelliJ IDEA, Eclipse, or NetBeans (optional but recommended)
 
 ---
 
-## 🚀 HOW TO RUN
+## 🚀 How to Run
 
 ### ▶️ Using Command Line
 
@@ -79,7 +80,7 @@ The objective is to achieve the highest score possible before the game ends.
 
 ---
 
-## 🕹️ CONTROLS
+## 🕹️ Controls
 
 | Key                | Action                                      |
 | ------------------ | ------------------------------------------- |
@@ -94,7 +95,7 @@ The objective is to achieve the highest score possible before the game ends.
 
 ---
 
-## 🍽️ GAME RULES
+## 🍽️ Game Rules
 
 - **Regular Food (Red Apple)**: Eat to grow by 1 segment and earn 1 point
 - **Special Food (Golden)**: Appears every 5 apples
@@ -110,7 +111,7 @@ The objective is to achieve the highest score possible before the game ends.
 
 ---
 
-## 🎯 GAMEPLAY TIPS
+## 🎯 Gameplay Tips
 
 1. Plan your path ahead to avoid trapping yourself
 2. Wait for special food to appear near the edges for safer collection
