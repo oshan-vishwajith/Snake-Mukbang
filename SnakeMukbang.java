@@ -369,10 +369,10 @@ class GamePanel extends JPanel implements ActionListener {
             // Special food always gets bonus with combo
             int basePoints = 3;
             int pointsEarned = calculatePoints(basePoints);
-            applesEaten += pointsEarned;
+            applesEaten += pointsEarned; // Add earned points to total score
             
             specialFoodActive = false;
-            specialFoodTimer = 0;
+            specialFoodTimer = 0; // Reset its timer
         }
     }
     
