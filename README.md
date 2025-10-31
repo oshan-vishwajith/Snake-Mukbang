@@ -119,6 +119,8 @@ How long can you survive the ultimate mukbang challenge?
 5. Start with Easy mode to practice, then challenge yourself with Hard mode
 6. Try to beat your high score each game!
 
+-💡 **Tip:** Try collecting special food near the corners for a safer combo!
+
 ---
 
 ## 🏆 Implemented Features (Hacktoberfest 2025)
