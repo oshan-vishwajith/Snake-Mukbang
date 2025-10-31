@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-// Main class: entry point for the game
+// Main class: entry point of the Snake Mukbang game
 public class SnakeMukbang {
 
     // Entry point: runs the Swing UI on the Event Dispatch Thread
@@ -36,20 +36,20 @@ class GamePanel extends JPanel implements ActionListener {
     static final int DELAY_MEDIUM = 90;
     static final int DELAY_HARD = 60;
 
-    final int[] x = new int[GAME_UNITS]; // snake body X coords
-    final int[] y = new int[GAME_UNITS]; // snake body Y coords
+    final int x[] = new int[GAME_UNITS]; // snake body X coords
+    final int y[] = new int[GAME_UNITS]; // snake body Y coords
     int bodyParts = 6; // initial length
     int applesEaten = 0;
     int appleX;
     int appleY;
     
-    // Special food feature
+    // Special food variables
     int specialFoodX = -1;
     int specialFoodY = -1;
     int specialFoodTimer = 0;
     boolean specialFoodActive = false;
     
-    // Combo system for score multiplier
+    // Combo system 
     int comboCount = 0;
     int movesSinceLastFood = 0;
     int comboDisplayTimer = 0;
